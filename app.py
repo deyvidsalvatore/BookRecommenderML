@@ -1,12 +1,11 @@
-import pickle
+import pandas as pd
 import streamlit as st
 import numpy as np
 
-st.header("Recomendação de Livros usando Machine Learning")
-model = pickle.load(open('artifacts/model.pkl', 'rb'))
-books_name = pickle.load(open('artifacts/book_names.pkl', 'rb'))
-final_rating = pickle.load(open('artifacts/final_rating.pkl', 'rb'))
-book_pivot = pickle.load(open('artifacts/book_pivot.pkl', 'rb'))
+model = pd.read_pickle('artifacts/model.pkl')
+books_name = pd.read_pickle('artifacts/book_names.pkl')
+final_rating = pd.read_pickle('artifacts/final_rating.pkl')
+book_pivot = pd.read_pickle('artifacts/book_pivot.pkl')
 
 def fetch_poster(suggestion):
     book_name = []
